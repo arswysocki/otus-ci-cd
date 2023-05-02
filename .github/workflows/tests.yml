@@ -6,7 +6,8 @@ env:
   IMAGE_TAG: nestjs-api
 
 jobs: 
-  - test: Run tests
+  test: 
+    name: Run tests
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
