@@ -6,18 +6,18 @@ env:
   IMAGE_TAG: nestjs-api
 
 jobs: 
-  test: Run tests
-  runs-on: ubuntu-latest
-  steps:
-    - name: Check out repo
-      uses: actions/checkout@v3
-    - name: Build Docker Image
-      uses: docker build -t $IMAGE_TAG --target=build
-    - name: Prettier
-      uses: docker run $$IMAGE_TAG sh -c 'npm run format'
-    - name: Eslint
-      uses: docker run $$IMAGE_TAG sh -c 'npm run lint'
-    - name: Typecheck
-      uses: docker run $$IMAGE_TAG sh -c 'npm run typecheck'
-    - name: Tests
-      uses: docker run $$IMAGE_TAG sh -c 'npm run test'
+  - test: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: Build Docker Image
+        uses: docker build -t $IMAGE_TAG --target=build
+      - name: Prettier
+        uses: docker run $$IMAGE_TAG sh -c 'npm run format'
+      - name: Eslint
+        uses: docker run $$IMAGE_TAG sh -c 'npm run lint'
+      - name: Typecheck
+        uses: docker run $$IMAGE_TAG sh -c 'npm run typecheck'
+      - name: Tests
+        uses: docker run $$IMAGE_TAG sh -c 'npm run test'
