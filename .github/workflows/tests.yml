@@ -15,10 +15,10 @@ jobs:
       - name: Build Docker Image
         uses: docker build -t $IMAGE_TAG --target=build
       - name: Prettier
-        uses: docker run $$IMAGE_TAG sh -c 'npm run format'
+        uses: docker run $IMAGE_TAG sh -c 'npm run format'
       - name: Eslint
-        uses: docker run $$IMAGE_TAG sh -c 'npm run lint'
+        uses: docker run $IMAGE_TAG sh -c 'npm run lint'
       - name: Typecheck
-        uses: docker run $$IMAGE_TAG sh -c 'npm run typecheck'
+        uses: docker run $IMAGE_TAG sh -c 'npm run typecheck'
       - name: Tests
-        uses: docker run $$IMAGE_TAG sh -c 'npm run test'
+        uses: docker run $IMAGE_TAG sh -c 'npm run test'
