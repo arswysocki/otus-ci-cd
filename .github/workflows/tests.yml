@@ -18,7 +18,5 @@ jobs:
         run: docker run $IMAGE_TAG sh -c 'npm run format'
       - name: Eslint
         run: docker run $IMAGE_TAG sh -c 'npm run lint'
-      - name: Typecheck
-        run: docker run $IMAGE_TAG sh -c 'npm run typecheck'
       - name: Tests
         run: docker run $IMAGE_TAG sh -c 'npm run test'

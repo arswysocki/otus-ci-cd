@@ -3,6 +3,8 @@ FROM node:18-alpine as deps
 
 WORKDIR /user/src/app
 
+RUN npm install -g npm@9.6.5
+
 COPY package.json package-lock.json ./
 
 RUN npm ci
@@ -15,6 +17,9 @@ FROM node:18-alpine as build
 
 WORKDIR /user/src/app
 
+RUN npm install -g npm@9.6.5
+
+
 COPY --from=deps /user/src/app ./
 
 RUN npm run build
@@ -26,6 +31,8 @@ USER node
 FROM node:18-alpine as run
 
 WORKDIR /user/src/app
+
+RUN npm install -g npm@9.6.5
 
 COPY --from=deps /user/src/app/node_modules ./node_modules
 COPY --from=build /user/src/app/dist ./dist
