@@ -15,7 +15,7 @@ FROM node:18-alpine as build
 
 WORKDIR /user/src/app
 
-COPY --from=deps /user/src/app
+COPY --from=deps /user/src/app ./
 
 RUN npm run build
 
